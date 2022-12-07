@@ -10,16 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author max_pri
- */
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/admin")
 public class AdminController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public AdminController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")

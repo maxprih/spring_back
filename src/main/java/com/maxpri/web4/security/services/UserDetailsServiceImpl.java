@@ -12,8 +12,13 @@ import com.maxpri.web4.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
+  private final UserRepository userRepository;
+
   @Autowired
-  UserRepository userRepository;
+  public UserDetailsServiceImpl(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
   @Override
   @Transactional

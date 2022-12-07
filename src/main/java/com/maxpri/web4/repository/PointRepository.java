@@ -6,11 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author max_pri
- */
 @Repository
 public interface PointRepository extends JpaRepository<Point, Integer> {
-    List<Point> findAllByR(double r);
     List<Point> findAllByOwnerId(Long id);
 }

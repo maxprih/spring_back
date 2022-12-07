@@ -2,9 +2,6 @@ package com.maxpri.web4.models;
 
 import javax.persistence.*;
 
-/**
- * @author max_pri
- */
 @Entity
 @Table(name = "Points")
 public class Point {
@@ -25,7 +22,7 @@ public class Point {
     @Column(name = "hit")
     private boolean hit;
 
-    @Column(name = "ownerId")
+    @Column(name = "owner_Id")
     private Long ownerId;
 
     public Point() {
