@@ -32,8 +32,8 @@ public class PointService {
     }
 
     @Transactional
-    public void deleteAll() {
-        pointRepository.deleteAll();
+    public void deleteAll(Long id) {
+        pointRepository.deleteAllByOwnerId(id);
     }
 
     public void checkHit(Point point) {

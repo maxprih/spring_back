@@ -73,7 +73,10 @@ public class PointsController {
 
     @DeleteMapping()
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public void deleteAll() {
-        pointService.deleteAll();
+    public void deleteAll(HttpServletRequest request) {
+        String jwt = authTokenFilter.parseJwt(request);
+        String username = authTokenFilter.jwtUtils.getUserNameFromJwtToken(jwt);
+        User user = userService.findByUsername(username);
+        pointService.deleteAll(user.getId());
     }
 }
